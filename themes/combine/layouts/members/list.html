@@ -1,0 +1,204 @@
+{{ define "main" }}
+
+{{ $pi := .Site.GetPage "/pi" }}
+
+<h1 class="pb-3">Lab Members</h1>
+
+<div class="card">
+    <h5 class="card-header">Meet the Principal Investigator</h5>
+    <div class="card-body">
+    <img class="avatar-frame-lg" style="float:left; margin:20px;" src="{{ $pi.Params.avatar }}" alt="Photo of {{$pi.Title}}"/>
+    <div style="width:70%; float:left;">
+    <h5 class="card-title">{{$pi.Title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{.RenderString $pi.Params.Email}}</h6>
+
+    {{ with $pi.Param "links.twitter" }}
+    <span class="badge bg-twitter member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-twitter"></i> Twitter</a></span>
+    {{ end }}
+    
+    {{ with $pi.Param "links.linkedin" }}
+    <span class="badge bg-linkedin member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-linkedin"></i> LinkedIn</a></span>
+    {{ end }}
+
+    {{ with $pi.Param "links.mastodon" }}
+    <span class="badge bg-mastodon member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-mastodon"></i> Mastodon</a></span>
+    {{end}}
+
+    {{ with $pi.Param "links.orcid" }}
+    <span class="badge bg-orcid member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-person-badge-fill"></i> ORCID iD</a></span>
+    {{ end }}
+
+    {{ with $pi.Param "links.website" }}
+    <span class="badge text-bg-dark member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-globe2"></i> Website</a></span>
+    {{ end }}
+    <div class="card-text pt-3">
+        {{$pi.Content}}
+    </div>
+    </div>
+    </div>
+</div>
+
+<h3 class="pt-5 pb-3">Current Students</h3>
+        <div class="row row-cols-1 row-cols-lg-4 g-4">
+           {{ range sort (where (where .Pages "Params.role" "==" "current_student") "Params.degree" "==" "pdf") "Params.name.last" "asc" }}
+
+            <div class="col">
+                <div class="card" style="height:100%;">
+                    
+                    {{ with .Param "avatar" }}
+                        <div class='member-card-img' style="background-image: url('{{ . }}');">
+                        </div>
+                    {{ else }}
+                        <div class='member-card-img' style="background-image: url('/imgs/blank_avatar.webp');"></div>
+                    {{ end }}
+                    <div class="card-body">
+                    <h5 class="card-title">{{ .Params.Name.First }} {{ .Params.Name.Middle }} {{ .Params.Name.Last }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{.RenderString .Params.Email}}</h6>
+
+                    <span class="badge text-bg-primary">Postdoctoral Researcher</span>
+
+                    {{ with .Param "links.twitter" }}
+                    <span class="badge bg-twitter member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-twitter"></i> Twitter</a></span>
+                    {{ end }}
+                    
+                    {{ with .Param "links.linkedin" }}
+                    <span class="badge bg-linkedin member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-linkedin"></i> LinkedIn</a></span>
+                    {{ end }}
+
+                    {{ with .Param "links.mastodon" }}
+                    <span class="badge bg-mastodon member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-mastodon"></i> Mastodon</a></span>
+                    {{end}}
+
+                    {{ with .Param "links.orcid" }}
+                    <span class="badge bg-orcid member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-person-badge-fill"></i> ORCID iD</a></span>
+                    {{ end }}
+
+                    {{ with .Param "links.website" }}
+                    <span class="badge text-bg-dark member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-globe2"></i> Website</a></span>
+                    {{ end }}
+
+                    <p class="card-text pt-3">{{ .Content }}</p>
+                    </div>
+                </div>
+            </div>
+
+            {{ end }}
+
+            {{ range sort (where (where .Pages "Params.role" "==" "current_student") "Params.degree" "==" "phd") "Params.name.last" "asc" }}
+
+            <div class="col">
+                <div class="card" style="height:100%;">
+                    
+                    {{ with .Param "avatar" }}
+                        <div class='member-card-img' style="background-image: url('{{ . }}');">
+                        </div>
+                    {{ else }}
+                        <div class='member-card-img' style="background-image: url('/imgs/blank_avatar.webp');"></div>
+                    {{ end }}
+                    <div class="card-body">
+                    <h5 class="card-title">{{ .Params.Name.First }} {{ .Params.Name.Middle }} {{ .Params.Name.Last }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{.RenderString .Params.Email}}</h6>
+
+                    <span class="badge text-bg-primary">Ph.D. Student</span>
+
+                    {{ with .Param "links.twitter" }}
+                    <span class="badge bg-twitter member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-twitter"></i> Twitter</a></span>
+                    {{ end }}
+                    
+                    {{ with .Param "links.linkedin" }}
+                    <span class="badge bg-linkedin member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-linkedin"></i> LinkedIn</a></span>
+                    {{ end }}
+
+                    {{ with .Param "links.mastodon" }}
+                    <span class="badge bg-mastodon member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-mastodon"></i> Mastodon</a></span>
+                    {{end}}
+
+                    {{ with .Param "links.orcid" }}
+                    <span class="badge bg-orcid member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-person-badge-fill"></i> ORCID iD</a></span>
+                    {{ end }}
+
+                    {{ with .Param "links.website" }}
+                    <span class="badge text-bg-dark member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-globe2"></i> Website</a></span>
+                    {{ end }}
+
+                    <p class="card-text pt-3">{{ .Content }}</p>
+                    </div>
+                </div>
+            </div>
+
+            {{ end }}
+
+            {{ range sort (where (where .Pages "Params.role" "==" "current_student") "Params.degree" "==" "msc") "Params.name.last" "asc" }}
+
+            <div class="col">
+                <div class="card" style="height:100%;">
+                    
+                    {{ with .Param "avatar" }}
+                        <div class='member-card-img' style="background-image: url('{{ . }}');">
+                        </div>
+                    {{ else }}
+                        <div class='member-card-img' style="background-image: url('/imgs/blank_avatar.webp');"></div>
+                    {{ end }}
+                    <div class="card-body">
+                    <h5 class="card-title">{{ .Params.Name.First }} {{ .Params.Name.Middle }} {{ .Params.Name.Last }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{.RenderString .Params.Email}}</h6>
+
+                    <span class="badge text-bg-primary">M.Sc. Student</span>
+
+                    {{ with .Param "links.twitter" }}
+                    <span class="badge bg-twitter member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-twitter"></i> Twitter</a></span>
+                    {{ end }}
+                    
+                    {{ with .Param "links.linkedin" }}
+                    <span class="badge bg-linkedin member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-linkedin"></i> LinkedIn</a></span>
+                    {{ end }}
+
+                    {{ with .Param "links.mastodon" }}
+                    <span class="badge bg-mastodon member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-mastodon"></i> Mastodon</a></span>
+                    {{end}}
+
+                    {{ with .Param "links.orcid" }}
+                    <span class="badge bg-orcid member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-person-badge-fill"></i> ORCID iD</a></span>
+                    {{ end }}
+
+                    {{ with .Param "links.website" }}
+                    <span class="badge text-bg-dark member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-globe2"></i> Website</a></span>
+                    {{ end }}
+
+                    <p class="card-text pt-3">{{ .Content }}</p>
+                    </div>
+                </div>
+            </div>
+
+            {{ end }}
+        </div>
+        <h3 class="pt-5 pb-3">Alumni</h3>
+
+        <div class="row row-cols-1 row-cols-lg-4 g-4 pt-3">
+        {{ range sort (where .Pages "Params.role" "==" "alumnus")  "Params.name.last" "asc" }}
+        
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div style="float:left; height:100%;margin-right:20px;">
+                        <img class="avatar-frame-sm" src="/imgs/avatar.webp" alt="Photo of {{ .Params.Name.First }} {{ .Params.Name.Middle }} {{ .Params.Name.Last }}"/>
+                    </div>
+                        <h5 class="card-title">{{ .Params.Name.First }} {{ .Params.Name.Middle }} {{ .Params.Name.Last }}</h5>
+                        {{if eq .Params.Degree "msc"}}
+                        <span class="badge text-bg-primary">M.Sc. Student</span>
+                        {{end}}
+
+                        {{if eq .Params.Degree "phd"}}
+                        <span class="badge text-bg-primary">Ph.D. Student</span>
+                        {{end}}
+
+                        {{if eq .Params.Degree "pdf"}}
+                        <span class="badge text-bg-primary">Postdoctoral Researcher</span>
+                        {{end}}
+                    </div>
+                </div>
+            </div>
+
+        {{ end }}
+        </div>
+{{ end }}

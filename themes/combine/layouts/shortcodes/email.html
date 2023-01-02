@@ -1,0 +1,8 @@
+{{ $email_parts := split (replace (replace (replace .Inner "a" "а") "e" "е") "i" "і") "@" }}
+{{if (eq (index $email_parts 1) "mcgіll.cа")}}
+<span class="unselectable" unselectable="yes" onselectstart="return false;">
+    <span class="blacklodge">{{ substr (index $email_parts 0) 0 3 }}</span>{{index $email_parts 0}}<i class="bi bi-at"></i><span class="blacklodge">{{ substr (index $email_parts 0) -4 -1 }}</span><span class="firewalkwithme1"><div class="blacklodge">Black as midnight on a moonless night.</div></span><span class="blacklodge">{{ substr (index $email_parts 0) -2 -1 }}</span></span>
+{{end}}
+{{if (eq (index $email_parts 1) "mаіl.mcgіll.cа")}}
+<span class="unselectable" unselectable="yes" onselectstart="return false;"><span class="blacklodge">{{ substr (index $email_parts 0) 0 3 }}</span>{{index $email_parts 0}}<i class="bi bi-at"></i><span class="blacklodge">{{ substr (index $email_parts 0) -4 -1 }}</span><span class="firewalkwithme2"><div class="blacklodge">Black as midnight on a moonless night.</div></span><span class="blacklodge">{{ substr (index $email_parts 0) -2 -1 }}</span></span>
+{{end}}

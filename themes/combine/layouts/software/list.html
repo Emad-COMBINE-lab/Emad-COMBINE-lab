@@ -1,0 +1,42 @@
+{{ define "main" }}
+
+<h1 class="pb-3">Software</h1>
+    <div class="row row-cols-1 row-cols-lg-4 g-4">
+    {{ range .Pages }}
+
+        
+        <div class="col">
+          <div class="card">
+              <div class="card-body">
+              <h5 class="card-title">{{ .Title }}</h5>
+ 
+                {{ with .Param "links.website" }}
+                <span class="badge text-bg-dark member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-globe2"></i> Website</a></span>
+                {{ end }}
+
+                {{ with .Param "links.github" }}
+                <span class="badge text-bg-dark member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-github"></i> GitHub</a></span>
+                {{ end }}
+
+                {{ with .Param "links.data" }}
+                <span class="badge text-bg-primary member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-device-hdd-fill"></i> Data</a></span>
+                {{ end }}
+
+                {{ with .Param "links.paper" }}
+                <span class="badge text-bg-primary member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-file-earmark-text-fill"></i> Paper</a></span>
+                {{ end }}
+
+                {{ with .Param "links.preprint" }}
+                <span class="badge text-bg-primary member-badge"><a class="text-white" href="{{ . }}" target="_new"><i class="bi bi-file-earmark-text-fill"></i> Preprint</a></span>
+                {{ end }}
+
+              <p class="card-text pt-3">{{ .Content }}</p>
+              </div>
+          </div>
+        </div>
+
+
+    {{ end }}
+    </div>
+
+{{ end }}

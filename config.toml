@@ -1,0 +1,40 @@
+baseURL = "https://emad-combine-lab.github.io"
+languageCode = "en-us"
+title = "Emad's COMBINE Lab"
+theme = "combine"
+
+[params]
+  recruiting = '/news/recruiting/'
+
+[menu]
+[[menu.main]]
+  identifier = 'home'
+  name = 'Home'
+  pre = "<i class='bi bi-house-fill'></i>"
+  url = '/'
+  weight = -110
+[[menu.main]]
+  identifier = 'members'
+  name = 'Lab Members'
+  pre = "<i class='bi bi-people-fill'></i>"
+  url = '/members/'
+  weight = -100
+[[menu.main]]
+  identifier = 'software'
+  name = 'Software'
+  pre = "<i class='bi bi-code-slash'></i>"
+  url = '/software/'
+  weight = -90
+[[menu.main]]
+  identifier = 'publications'
+  name = 'Publications'
+  pre = "<i class='bi bi-file-earmark-text-fill'></i>"
+  url = '/publications/'
+  weight = -80
+[[menu.main]]
+  identifier = 'news'
+  name = 'News'
+  pre = "<i class='bi bi-megaphone-fill'></i>"
+  url = '/news/'
+  weight = -70
+

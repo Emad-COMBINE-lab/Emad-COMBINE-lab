@@ -1,0 +1,140 @@
+{{ define "main" }}
+    {{ $jumbotron := .Site.GetPage "/homepage/jumbotron" }}
+    {{ $pi := .Site.GetPage "/members/pi" }}
+    {{ $interest_one := .Site.GetPage "/homepage/interest_one" }}
+    {{ $interest_two := .Site.GetPage "/homepage/interest_two" }}
+        <div class="row">
+            <div class="col-lg-9 p-5 mb-4 bg-light rounded-3">
+                <div class="container-fluid py-5">
+                    <h1 class="display-5 fw-bold">{{ $jumbotron.Title }}</h1>
+                    {{ $jumbotron.Content }}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 p-5">
+                <div class="text-center">
+                    <img class="avatar-frame" src="{{ $pi.Params.avatar }}" alt="Photo of Amin Emad"/>
+                    <h2>{{ $pi.Title }}</h2>
+                </div>
+                <p>{{.RenderString $pi.Description }}</p>
+                <a class="btn btn-primary" href="/members">Read More &raquo;</a>
+            </div>
+        </div>
+        
+        <div class="row align-items-md-stretch">
+            <h1>Research Interests</h1>
+            <div class="col-md-6">
+              <div class="h-100 p-5 border rounded-3">
+                <h2 class="text-primary">{{ $interest_one.Title }}</h2>
+                {{ $interest_one.Content }}
+                <div class="accordion accordion-flush" id="pharmacogenomicsAccordion">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pharmaco-collaborators" aria-expanded="false" aria-controls="pharmaco-collaborators">
+                      Key Collaborators
+                      </button>
+                    </h2>
+                    <div id="pharmaco-collaborators" class="accordion-collapse collapse" aria-labelledby="flush-headingOne">
+                      <div class="accordion-body">
+                          <ul>
+                            {{ range $interest_one.Params.Collaborators }}
+                            <li>{{ . }}</li>
+                            {{ end }}
+                          </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pharmaco-personnel" aria-expanded="false" aria-controls="pharmaco-personnel">
+                      Key Personnel
+                      </button>
+                    </h2>
+                    <div id="pharmaco-personnel" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo">
+                      <div class="accordion-body">
+                        <ul>
+                          {{ range $interest_one.Params.Personnel }}
+                          <li>{{ . }}</li>
+                          {{ end }}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="h-100 p-5 border rounded-3">
+                <h2 class="text-secondary">{{ $interest_two.Title }}</h2>
+                {{ $interest_two.Content }}
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                      Key Collaborators
+                      </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne">
+                      <div class="accordion-body">
+                          <ul>
+                            {{ range $interest_two.Params.Collaborators }}
+                            <li>{{ . }}</li>
+                            {{ end }}
+                          </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                      Key Personnel
+                      </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo">
+                      <div class="accordion-body">
+                          <ul>
+                            {{ range $interest_two.Params.Personnel }}
+                            <li>{{ . }}</li>
+                            {{ end }}
+                          </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--
+            <h1 class="pt-5 pb-3">Discover the Lab</h1>
+            <div class="container px-4 text-center">
+              <div class="row gx-5">
+                <a href="#" class="col">
+                 <div class="p-4 border text-bg-primary rounded-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                      <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+                    </svg>
+                    <h3 class="fw-bold">Lab Members</h3>
+                 </div>
+                </a>
+                <a href="#" class="col">
+                  <div class="p-4 border text-bg-primary rounded-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
+                          <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
+                        </svg>
+                        <h3 class="fw-bold">Software</h3>
+                  </div>
+                </a>
+                <a href="#" class="col">
+                  <div class="p-4 border text-bg-primary rounded-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
+                          <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z"/>
+                        </svg>
+                        <h3 class="fw-bold">Publications</h3>
+                  </div>
+              </a>
+              </div>
+              
+            </div>
+            -->
+
+          </div>
+{{ end }}

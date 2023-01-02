@@ -1,0 +1,21 @@
+{{ define "main" }}
+
+<h1 class="pb-3">News</h1>
+    {{ range .Pages }}
+
+        
+    <div class="row pt-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ .Title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Posted <time datetime="{{ .Date.Format "2006-01-02T15:04:05" }}">{{ .Date.Format "2006/01/02" }}</time></h6>
+            <p class="card-text">{{ .Description }}</p>
+            <a href="{{.Permalink}}" class="card-link">Read More &raquo;</a>
+          </div>
+        </div>
+      </div>
+
+
+    {{ end }}
+
+{{ end }}

@@ -1,0 +1,34 @@
+{{ $currentPage := . }}
+	  <header class="pb-3 mb-4 border-bottom">
+  
+	  <nav class="navbar navbar-expand-lg bg-white">
+		  <div class="container-fluid">
+			  <a class="navbar-brand" href="/">
+				  <img src="/imgs/alt_logo.webp" alt="Emad's COMBINE Lab Logo" height="64">
+				</a>          
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			{{ with .Site.Menus.main }}
+			  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				{{ range . }}
+				<li class="nav-item">
+					<a class="nav-link {{ if $currentPage.IsMenuCurrent "main" . }}active{{end}}" {{ if $currentPage.IsMenuCurrent "main" . }}aria-current="page"{{ end }} href="{{ .URL | relURL }}">{{ .Pre }} {{ .Name }}</a>
+				  </li>
+				{{ end }}
+			  </ul>
+			{{ end }}
+			</div>
+		  </div>
+		</nav>
+	
+	  </header>
+
+	  {{if .Site.Params.Recruiting}}
+	  <div class="row">
+		<div class="alert alert-secondary" role="alert">
+		  <i class="bi bi-exclamation-circle-fill" style="vertical-align: 0px !important;"></i> <strong>Open Positions!</strong> We're looking for motivated applicants. <a href="{{.Site.Params.Recruiting}}">Read More &raquo;</a>
+		</div>
+	  </div>
+	  {{end}}
