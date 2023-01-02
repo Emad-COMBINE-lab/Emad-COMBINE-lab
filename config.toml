@@ -5,6 +5,7 @@ theme = "combine"
 
 [params]
   recruiting = '/news/recruiting/'
+  password = 'randomwalk'
 
 [menu]
 [[menu.main]]

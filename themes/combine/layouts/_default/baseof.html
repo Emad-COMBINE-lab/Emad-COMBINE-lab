@@ -13,7 +13,11 @@
 	{{- end }}
 </head>
 <body>
+	{{if .Site.Params.Password}}
+	<main id="main" class="blacklodge">
+	{{else}}
 	<main>
+	{{end}}
 		<div class="container py-4">
 			{{ partial "header" . }}
 			{{ block "main" . }}{{ end }}
@@ -21,5 +25,21 @@
 		</div>
 	</main>
 	<script src="/js/bootstrap.bundle.min.js"></script>
+	{{if .Site.Params.Password}}
+	<script>
+
+		var pass1 = prompt('Please Enter Your Password','');
+
+
+		if (pass1.toLowerCase() == "{{ .Site.Params.Password }}") {
+			document.getElementById("main").classList.remove("blacklodge");;
+		}
+		
+
+		window.onload = function(e){ 
+			passWord()
+		}
+		</script>
+	{{end}}
 </body>
 </html>
