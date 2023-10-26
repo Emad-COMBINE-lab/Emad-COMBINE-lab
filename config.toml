@@ -4,7 +4,7 @@ title = "Emad's COMBINE Lab"
 theme = "combine"
 
 [params]
-  recruiting = '/news/recruiting/'
+#  recruiting = '/news/recruiting/'
   password = 'randomwalk'
 
 [menu]
