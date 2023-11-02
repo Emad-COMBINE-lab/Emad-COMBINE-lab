@@ -16,3 +16,4 @@ The table of contents is the best way to use the documentation.
 |[`config.md`](config.md)|Website Configuration|Information regarding editing the website configuration file.|
 |[`members.md`](members.md)|Editing the Members Page|Information regarding adding, removing, and updating lab members on the lab members page.|
 |[`news.md`](news.md)|Editing the News Page|Information regarding editing the News page and making new posts.|
+|[`software.md`](software.md)|Editing the Software Page|Information regarding editing the Software page.|
