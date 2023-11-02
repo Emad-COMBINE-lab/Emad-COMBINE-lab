@@ -6,6 +6,8 @@ There are, however a couple of custom settings that I will outline here.
 
 The website configuration file is defined using [TOML](https://toml.io/en/).
 
+The location of the config file is `config.toml` (in the root directory).
+
 ## Custom Settings
 The template I wrote for this website has some custom features specific to the COMBINE lab website. Here's how to use them.
 
