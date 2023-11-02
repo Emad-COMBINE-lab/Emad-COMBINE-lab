@@ -5,3 +5,5 @@ description = "We're looking for motivated applicants."
 +++
 
 We're currently looking for motivated Ph.D. students. Please send your CVs and cover letters to {{< email >}}amin.emad@mcgill.ca{{</ email >}}
+
+**UPDATE**: We are no longer actively recruiting.
