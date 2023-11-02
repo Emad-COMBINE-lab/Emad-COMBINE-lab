@@ -2,6 +2,15 @@
 
 All information shown on the members page is present in the folder `/content/members`. Each member is represented by a single markdown file.
 
+## Order of Members 
+Lab members are displayed according to the following algorithm.
+
+- All postdoctoral fellows are shown first, sorted by the `name.last` variable in an alphabetical descending manner.
+
+- All doctoral students are shown first, sorted by the `name.last` variable in an alphabetical descending manner.
+
+- All masters students are shown first, sorted by the `name.last` variable in an alphabetical descending manner.
+
 ## Member Files
 
 ### Filenames
