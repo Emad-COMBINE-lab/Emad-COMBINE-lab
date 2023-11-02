@@ -1,4 +1,4 @@
-# News
+# Editing the News Page
 
 News posts should announce things like new manuscripts, members, awards, and talks.
 
