@@ -19,6 +19,7 @@ The [page variables](https://gohugo.io/variables/page/) are, by convention, defi
 |`role`|Value must be `"current_student"` for current members of the lab and `"alumnus"` for alumni. Values other than these will result in unexpected behaviour.|`"current_student"`|
 |`degree`|Value must be `"msc"` for Master's students, `"phd"` for Doctoral students, and `"pdf"` for Postdoctoral Fellows.|`"pdf"`|
 |`email`|The value must be an email from which you would like to receive public professional correspondence, prepended with `"{{< email >}}` and appended with `{{</ email >}}"`. The `{{< email >}}` obfuscates your email and should help prevent spam.|`"{{< email >}}emc2@example.com{{</ email >}}"`|
+|`avatar`|A path to an image file of you. The image should be 305 pixels wide and 150 pixels tall (or have the same aspect ratio). This variable is optional and can be omitted from the file if you haven't a photo. The files should be placed in the `/imgs/members/` folder. |`"/imgs/members/albert.jpg"`|
 |`name.first`|The fragment of your name that you would like to appear first. For western names, this is your Given name.|`"Albert"`|
 |`name.middle`|The fragment of your name that you would like to appear between the first and last fragments. For western names, this is your middle name. This variable is optional and can be omitted from the file in the event of not having a middle name.||
 |`name.last`|The fragment of your name that you would like to appear after the first and middle fragments. For western names, this is your Surname name.|`"Einstein"`|
@@ -39,6 +40,7 @@ headless = true
 role = "current_student"
 degree = "pdf"
 email = "{{< email >}}emc2@example.com{{</ email >}}"
+avatar = "/imgs/members/albert.jpg"
 [name]
     first = "Albert"
     last = "Einstein"
